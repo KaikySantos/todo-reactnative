@@ -11,19 +11,14 @@ import { ITask } from "../../screens/Home";
 interface TaskProps {
   task: ITask
   onDelete: (taskId: string) => void
+  handleTask: (taskId: string) => void
 }
 
-export function Task({ task, onDelete }: TaskProps) {
-  const [isFinished, setIsFinished] = useState(false)
-
-  function handleFinishTask() {
-    setIsFinished(prevState => !prevState)
-  }
-
+export function Task({ task, onDelete, handleTask }: TaskProps) {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <TouchableOpacity onPress={handleFinishTask}>
+        <TouchableOpacity onPress={() => handleTask(task.id)}>
           {!task.isFinished ? (
             <IconEntypo name="circle" size={20} color="#4EA8DE" />
           ) : (

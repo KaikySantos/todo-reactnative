@@ -9,6 +9,10 @@ export const styles = StyleSheet.create({
     height: 208
   },
 
+  image: {
+    marginBottom: 16,
+  },
+
   title: {
     fontSize: 14,
     color: '#808080',
