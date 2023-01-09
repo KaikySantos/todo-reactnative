@@ -34,7 +34,9 @@ export const styles = StyleSheet.create({
     width: 52,
     height: 52,
     backgroundColor: '#1E6F9F',
-    borderRadius: 6
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
   info: {
@@ -69,4 +71,9 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold'
   },
+
+  taskContainer: {
+    paddingHorizontal: 24,
+    marginBottom: 24,
+  }
 })
