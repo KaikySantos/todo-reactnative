@@ -29,6 +29,12 @@ export function Home() {
     setTaskText('')
   }
 
+  function handleDeleteTask(taskId: string) {
+    const newTasks = tasks.filter(task => task.id !== taskId)
+
+    setTasks(newTasks)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -63,13 +69,11 @@ export function Home() {
         </View>
       </View>
 
-      {/* <EmptyState /> */}
-
       <FlatList
         data={tasks}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <Task task={item} />
+          <Task task={item} onDelete={handleDeleteTask} />
         )}
         style={styles.taskContainer}
         ListEmptyComponent={() => (

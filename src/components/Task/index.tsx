@@ -10,9 +10,10 @@ import { ITask } from "../../screens/Home";
 
 interface TaskProps {
   task: ITask
+  onDelete: (taskId: string) => void
 }
 
-export function Task({ task }: TaskProps) {
+export function Task({ task, onDelete }: TaskProps) {
   const [isFinished, setIsFinished] = useState(false)
 
   function handleFinishTask() {
@@ -36,7 +37,7 @@ export function Task({ task }: TaskProps) {
         </Text>
       </View>
       <View style={styles.deleteContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onDelete(task.id)}>
           <IconFeather name="trash-2" size={22} color="#808080" />
         </TouchableOpacity>
       </View>
